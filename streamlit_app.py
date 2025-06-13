@@ -42,6 +42,7 @@ st.markdown("""
         padding: 1.5em;
         background-color: #fff0f0;
         line-height: 1.8em;
+        color: black;
     }
     </style>
 """, unsafe_allow_html=True)
