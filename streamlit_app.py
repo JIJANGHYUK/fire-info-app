@@ -25,10 +25,10 @@ data = sheet.get_all_records()
 df = pd.DataFrame(data)
 
 # Streamlit UI 설정
-st.setnfig(
+st.set_page_config(
     page_title="거래처 조회 | (주)콤파스이앤씨",
     page_icon="📋",
-    layout="wide"_page_co
+    layout="wide"
 )
 
 st.markdown("""
@@ -50,7 +50,7 @@ st.markdown("""
         border-collapse: collapse;
     }
     .result-box td {
-        padding: 4px 8px;
+        padding: 6px 8px;
         vertical-align: top;
     }
     .result-box .label {
@@ -77,7 +77,7 @@ if not target_info.empty:
     <div class="result-box">
     <table>
         <tr><td class="label">🔺 주소:</td><td class="value">{row['주소']}</td></tr>
-        <tr><td class="label">🛠️ 관계인/실무자:</td><td class="value">{row['관계인/실무자']}</td></tr>
+        <tr><td class="label">🛠️ 관계인/실무자:</td><td class="value">{row['관계인/실무자'].replace(' / 동일','')}</td></tr>
         <tr><td class="label">📍 수신기 위치:</td><td class="value">{row['수신기위치']}</td></tr>
         <tr><td class="label">🔧 펌프실 위치:</td><td class="value">{row['펌프실위치']}</td></tr>
         <tr><td class="label">🗓️ 사용승인일:</td><td class="value">{row['사용승인일']}</td></tr>
