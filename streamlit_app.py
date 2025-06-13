@@ -6,11 +6,12 @@ import pandas as pd
 
 # Google Sheets 인증
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
-SERVICE_ACCOUNT_FILE = "service_account.json"  # 로컬 JSON 키 파일 경로
+SERVICE_ACCOUNT_JSON = st.secrets["SERVICE_ACCOUNT_JSON"]
+info_dict = json.loads(SERVICE_ACCOUNT_JSON)
 
 # 인증 객체 생성
-credentials = Credentials.from_service_account_file(
-    SERVICE_ACCOUNT_FILE,
+credentials = Credentials.from_service_account_info(
+    info_dict,
     scopes=SCOPES
 )
 
