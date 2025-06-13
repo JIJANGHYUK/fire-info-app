@@ -66,4 +66,3 @@ if not target_info.empty:
     st.markdown(info_text, unsafe_allow_html=True)
 else:
     st.error("정보를 찾을 수 없습니다.")
-
