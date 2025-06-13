@@ -41,14 +41,25 @@ st.markdown("""
         border-radius: 10px;
         padding: 1.5em;
         background-color: #fff0f0;
-        line-height: 2.2em;
+        line-height: 2.4em;
         color: black;
         font-size: 1.1em;
     }
-    .result-box strong {
-        display: inline-block;
+    .result-box table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .result-box td {
+        padding: 4px 8px;
+        vertical-align: top;
+    }
+    .result-box .label {
         width: 10em;
-        text-align: left;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+    .result-box .value {
+        width: auto;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -64,21 +75,22 @@ if not target_info.empty:
     row = target_info.iloc[0]
     info_text = f"""
     <div class="result-box">
-    🔺 <strong>주소:</strong> {row['주소']}<br>
-    🛠️ <strong>관계인/실무자:</strong> {row['관계인/실무자']} / 동일 🔍<br>
-    📍 <strong>수신기 위치:</strong> {row['수신기위치']}<br>
-    🔧 <strong>펌프실 위치:</strong> {row['펌프실위치']}<br>
-    🗓️ <strong>사용승인일:</strong> {row['사용승인일']}<br>
-    📊 <strong>종합점검시기:</strong> {row['종합점검시기']}<br>
-    ⏰ <strong>작동점검시기:</strong> {row['작동점검시기']}<br>
-    📏 <strong>연면적:</strong> {row['연면적']} ㎡<br>
-    📨 <strong>점검표 전달방법:</strong> {row['점검표 전달방법']}<br>
-    🔐 <strong>출입 비밀번호:</strong> {row['출입 비밀번호']}<br>
-    🗓️ <strong>점검(관리)시기:</strong> {row['점검(관리)시기']}
+    <table>
+        <tr><td class="label">🔺 주소:</td><td class="value">{row['주소']}</td></tr>
+        <tr><td class="label">🛠️ 관계인/실무자:</td><td class="value">{row['관계인/실무자']} / 동일 🔍</td></tr>
+        <tr><td class="label">📍 수신기 위치:</td><td class="value">{row['수신기위치']}</td></tr>
+        <tr><td class="label">🔧 펌프실 위치:</td><td class="value">{row['펌프실위치']}</td></tr>
+        <tr><td class="label">🗓️ 사용승인일:</td><td class="value">{row['사용승인일']}</td></tr>
+        <tr><td class="label">📊 종합점검시기:</td><td class="value">{row['종합점검시기']}</td></tr>
+        <tr><td class="label">⏰ 작동점검시기:</td><td class="value">{row['작동점검시기']}</td></tr>
+        <tr><td class="label">📏 연면적:</td><td class="value">{row['연면적']} ㎡</td></tr>
+        <tr><td class="label">📨 점검표 전달방법:</td><td class="value">{row['점검표 전달방법']}</td></tr>
+        <tr><td class="label">🔐 출입 비밀번호:</td><td class="value">{row['출입 비밀번호']}</td></tr>
+        <tr><td class="label">🗓️ 점검(관리)시기:</td><td class="value">{row['점검(관리)시기']}</td></tr>
+    </table>
     </div>
     """
     st.markdown(f"### 📄 '{selected_target}' 정보")
     st.markdown(info_text, unsafe_allow_html=True)
 else:
     st.error("정보를 찾을 수 없습니다.")
-
