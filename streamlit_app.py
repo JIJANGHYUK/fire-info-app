@@ -41,8 +41,14 @@ st.markdown("""
         border-radius: 10px;
         padding: 1.5em;
         background-color: #fff0f0;
-        line-height: 1.8em;
+        line-height: 2.2em;
         color: black;
+        font-size: 1.1em;
+    }
+    .result-box strong {
+        display: inline-block;
+        width: 10em;
+        text-align: left;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -75,3 +81,4 @@ if not target_info.empty:
     st.markdown(info_text, unsafe_allow_html=True)
 else:
     st.error("정보를 찾을 수 없습니다.")
+
