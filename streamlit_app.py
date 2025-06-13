@@ -6,11 +6,11 @@ import pandas as pd
 
 # Google Sheets 인증
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
-SERVICE_ACCOUNT_JSON = json.dumps(st.secrets.to_dict())
+SERVICE_ACCOUNT_JSON = st.secrets["service_account"]
 
 # 인증 객체 생성
 credentials = Credentials.from_service_account_info(
-    json.loads(SERVICE_ACCOUNT_JSON),
+    SERVICE_ACCOUNT_JSON,
     scopes=SCOPES
 )
 
@@ -66,3 +66,4 @@ if not target_info.empty:
     st.markdown(info_text, unsafe_allow_html=True)
 else:
     st.error("정보를 찾을 수 없습니다.")
+
