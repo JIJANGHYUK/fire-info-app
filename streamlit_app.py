@@ -39,8 +39,9 @@ st.markdown("""
     .result-box {
         border: 2px solid #e06666;
         border-radius: 10px;
-        padding: 1.2em;
+        padding: 1.5em;
         background-color: #fff0f0;
+        line-height: 1.8em;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -56,10 +57,17 @@ if not target_info.empty:
     row = target_info.iloc[0]
     info_text = f"""
     <div class="result-box">
-    🔺 **주소:** {row['주소']} 🛠️ **관계인/실무자:** {row['관계인/실무자']} / 동일 🔍<br>
-    📍 **수신기 위치:** {row['수신기위치']} 🔧 **펌프실 위치:** {row['펌프실위치']} 🗓️ **사용승인일:** {row['사용승인일']}<br>
-    📊 **종합점검시기:** {row['종합점검시기']} ⏰ **작동점검시기:** {row['작동점검시기']} 📏 **연면적:** {row['연면적']} ㎡<br>
-    📨 **점검표 전달방법:** {row['점검표 전달방법']} 🔐 **출입 비밀번호:** {row['출입 비밀번호']} 🗓️ **점검(관리)시기:** {row['점검(관리)시기']}
+    🔺 <strong>주소:</strong> {row['주소']}<br>
+    🛠️ <strong>관계인/실무자:</strong> {row['관계인/실무자']} / 동일 🔍<br>
+    📍 <strong>수신기 위치:</strong> {row['수신기위치']}<br>
+    🔧 <strong>펌프실 위치:</strong> {row['펌프실위치']}<br>
+    🗓️ <strong>사용승인일:</strong> {row['사용승인일']}<br>
+    📊 <strong>종합점검시기:</strong> {row['종합점검시기']}<br>
+    ⏰ <strong>작동점검시기:</strong> {row['작동점검시기']}<br>
+    📏 <strong>연면적:</strong> {row['연면적']} ㎡<br>
+    📨 <strong>점검표 전달방법:</strong> {row['점검표 전달방법']}<br>
+    🔐 <strong>출입 비밀번호:</strong> {row['출입 비밀번호']}<br>
+    🗓️ <strong>점검(관리)시기:</strong> {row['점검(관리)시기']}
     </div>
     """
     st.markdown(f"### 📄 '{selected_target}' 정보")
